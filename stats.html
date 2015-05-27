@@ -30,6 +30,43 @@
    		<script type="text/javascript" src="js/html5.js"></script>
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 	<![endif]-->
+<script>
+  (function(){
+    var refresh = function(){
+      var script = document.createElement("script");
+      script.type = 'text/javascript';
+      script.src = "http://stats.cpps.me/users.js?" + new Date().getTime();
+      script.onload = function(){
+        if (stats && stats.total) {
+          var now = Math.round(+new Date()/1000);
+          var txt = "";
+          txt += "Stats as of: <b>" + Math.round((now-stats.when)/8640)/10 + "</b> (Days ago)<br>\n";
+          txt += "Total users: <b>" + stats.total + "</b><br>\n";
+          txt += "Active users: <b>" + stats.active + "</b> (Login within past 30 days)<br>\n";
+          txt += "Users Online: <b>" + stats.online + "</b> (Right now)<br>\n";
+          txt += "Most Online: <b>" + stats.max_online + "</b> (MAX Simultaneous Users)<br>\n";
+          txt += "Max Reached: <b>" + Math.round((now-stats.max_when)/8640)/10 + "</b> (Days ago)<br>\n";
+          txt += "<table border=1>\n";
+          txt += "<tr><th>World</th><th>Lang</th><th>Now</th></tr>\n";
+          for (var i = 0; i < stats.servers.length; i++) {
+            var s = stats.servers[i];
+            if (s.a > 3600) s.p = '?';
+            txt += "<tr><td>" + s.name + "</td><td>" + s.l + "</td><td align=right>" + s.p + "</td></tr>\n";
+          }
+          txt += "</table>\n";
+          document.getElementById("online").innerHTML = txt;
+        } // if stats.total
+      };
+      script.onreadystatechange = function(){
+        if(this.readyState != "complete") return;
+        this.onload();
+      }
+      document.getElementsByTagName("head")[0].appendChild(script);
+    };
+    refresh();
+    setInterval(refresh, 60000);
+  })();
+</script>
 </head>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,7 +120,9 @@ try{(function(a){var b="http://",c="cpps.me",d="/cdn-cgi/cl/",e="120dd06edb7ed39
 <h3>Stats</h3>
 <h6>Below you can see a nice compilation of CPPS.me's userstats.</h6>
 <p class="p1"><center>
-<iframe src="http://config.cpps.me/statsframe.html" width="100%" height="400"></iframe>
+<table><tr><td>
+<pre id="online">Loading...</pre>
+</td></tr></table>
 </center></p>
 </div>
 </div>
