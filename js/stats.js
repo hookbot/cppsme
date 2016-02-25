@@ -32,7 +32,7 @@
           var online = document.getElementById("online");
           if (online) {
             var txt = "";
-            txt += "<a href=http://cpps.me/stats.html target=_top><font color=#5580B4>Users Online: <b>" + stats.online + "</b></font></a>\n";
+            txt += '<a href="http://cpps.me/stats.html" target="_top">Users Online: <b>' + stats.online + '</b></a>';
             online.innerHTML = txt;
           } // online
         } // if stats.total
