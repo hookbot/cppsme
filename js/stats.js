@@ -3,7 +3,7 @@
     var refresh = function(){
       var script = document.createElement("script");
       script.type = 'text/javascript';
-      script.src = "http://stats.cpps.me/users.js?" + new Date().getTime();
+      script.src = "//stats.cpps.me/users.js?" + new Date().getTime();
       script.onload = function(){
         if (stats && stats.total) {
           var now = Math.round(+new Date()/1000);
