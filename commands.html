@@ -31,12 +31,49 @@
         .carousel-inner > .item > img {
             height: 88px !important;
         }
-    </style>
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+.dropbtn {
+    background-color: hsla(225,93%,54%,0.50);
+    color: white;
+    padding: 2px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3291E3;
+}
+    </style>
 </head>
 <body>
 <div class="navbar-wrapper">
@@ -60,6 +97,7 @@
                         <li><a href="//manager.cpps.me/index.php?area=nameedit">Manager</a></li>
                         <li><a href="//secure.cpps.me/?page=score">High Scores</a></li>
                         <li><a href="//support.cpps.me/">Support</a></li>
+                        <li><a href="https://discord.gg/trZfbFu">Discord</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -101,25 +139,169 @@
             <img class="rules-icon" src="//www.cpps.me/images/sitting.png" height="64"/>
         </div>
         <div class="col-md-8 col-md-push-1">
-            <h4>Player Commands</h4>
+          <h4>Player Commands</h4>
             <ul class="no-style">
-                <li><strong>!AI *ID*</strong> - Replace *ID* with the ID of the item you want to add.</li>
-                <li><strong>!JR *ID*</strong> - Replace *ID* with the ID of the room you would like to join.</li>
-                <li><strong>!AF *ID*</strong> - Replace *ID* with the ID of the furniture you want to add.</li>
-                <li><strong>!AS *ID*</strong> - Replace *ID* with the ID of the stamp you want to add.</li>
-                <li><strong>!AC 5000</strong> - Adds 5000 coins to your user.</li>
+                <li><strong>!AI &lt;ID&gt;</strong> - Replace &lt;ID&gt; with item ID you want to add to your inventory.</li>
+                    <ul>
+                        <li><strong>!AI 413</strong> - Adds beta hat to your user.</li>
+                    </ul>
+                <li><strong>!JR &lt;room_id or room_code&gt;</strong> - You can use either the numeric Room ID or the Code Name for the room you want to join.</li>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                  <button class="dropbtn" style="overflow:auto">Example Room Names here</button>
+                                  <div class="dropdown-content">
+                                    <div style="overflow:auto;">
+                                    <select size="10">
+                                    <option><a href="#">town</a></option>
+                                    <option><a href="#">agent</a></option>
+                                    <option><a href="#">agentcom</a></option>
+                                    <option><a href="#">agentlobbymulti</a></option>
+                                    <option><a href="#">agentlobbysolo</a></option>
+                                    <option><a href="#">agentvr</a></option>
+                                    <option><a href="#">attic</a></option>
+                                    <option><a href="#">beach</a></option>
+                                    <option><a href="#">beacon</a></option>
+                                    <option><a href="#">berg</a></option>
+                                    <option><a href="#">boiler</a></option>
+                                    <option><a href="#">book</a></option>
+                                    <option><a href="#">boxdimension</a></option>
+                                    <option><a href="#">cave</a></option>
+                                    <option><a href="#">cavemine</a></option>
+                                    <option><a href="#">coffee</a></option>
+                                    <option><a href="#">cove</a></option>
+                                    <option><a href="#">dance</a></option>
+                                    <option><a href="#">dock</a></option>
+                                    <option><a href="#">dojo</a></option>
+                                    <option><a href="#">dojoext</a></option>
+                                    <option><a href="#">dojoextsolo</a></option>
+                                    <option><a href="#">dojofire</a></option>
+                                    <option><a href="#">dojohide</a></option>
+                                    <option><a href="#">dojohidesolo</a></option>
+                                    <option><a href="#">dojowater</a></option>
+                                    <option><a href="#">eco</a></option>
+                                    <option><a href="#">forest</a></option>
+                                    <option><a href="#">forts</a></option>
+                                    <option><a href="#">jail</a></option>
+                                    <option><a href="#">lake</a></option>
+                                    <option><a href="#">light</a></option>
+                                    <option><a href="#">lodge</a></option>
+                                    <option><a href="#">lounge</a></option>
+                                    <option><a href="#">mine</a></option>
+                                    <option><a href="#">mtn</a></option>
+                                    <option><a href="#">party</a></option>
+                                    <option><a href="#">party1</a></option>
+                                    <option><a href="#">party10</a></option>
+                                    <option><a href="#">party11</a></option>
+                                    <option><a href="#">party12</a></option>
+                                    <option><a href="#">party13</a></option>
+                                    <option><a href="#">party14</a></option>
+                                    <option><a href="#">party15</a></option>
+                                    <option><a href="#">party16</a></option>
+                                    <option><a href="#">party17</a></option>
+                                    <option><a href="#">party18</a></option>
+                                    <option><a href="#">party19</a></option>
+                                    <option><a href="#">party2</a></option>
+                                    <option><a href="#">party24</a></option>
+                                    <option><a href="#">party25</a></option>
+                                    <option><a href="#">party26</a></option>
+                                    <option><a href="#">party27</a></option>
+                                    <option><a href="#">party28</a></option>
+                                    <option><a href="#">party3</a></option>
+                                    <option><a href="#">party4</a></option>
+                                    <option><a href="#">party5</a></option>
+                                    <option><a href="#">party6</a></option>
+                                    <option><a href="#">party7</a></option>
+                                    <option><a href="#">party8</a></option>
+                                    <option><a href="#">party9</a></option>
+                                    <option><a href="#">party99</a></option>
+                                    <option><a href="#">pet</a></option>
+                                    <option><a href="#">pizza</a></option>
+                                    <option><a href="#">plaza</a></option>
+                                    <option><a href="#">rink</a></option>
+                                    <option><a href="#">shack</a></option>
+                                    <option><a href="#">shop</a></option>
+                                    <option><a href="#">stage</a></option>
+                                    <option><a href="#">town</a></option>
+                                    <option><a href="#">underwater</a></option>
+                                    <option><a href="#">village</a></option>
+                                    <option><a href="#">welcomesolo</a></option>
+                                    </select>
+                                    </div>
+                                 </div>
+                            </div>
+                        </li>
+                    </ul>
+                <li><strong>!AF &lt;ID&gt;</strong> - Replace &lt;ID&gt; with the ID of the furniture you want to add.</li>
+                <li><strong>!AS &lt;ID&gt;</strong> - Replace &lt;ID&gt; with the ID of the stamp you want to add.</li>
+
                 <li><strong>!PIN *ID*</strong> - Allows you to use any item as pin, replace *ID* with the item's ID.
+                </li>
+                <li><strong>!UP [{c|h|f|n|b|a|e|l|p}] &lt;ItemID&gt;</strong> - [the placement code is optional] Wear ItemID</li>
                 </li>
                 <li><strong>!UP *INITIALS*</strong> - Put the initials of a 'mascot' - eg: RH (Rockhopper), AA (Aunt
                     Arctic), etc, or try combinations such as !UP Rockhopper, as some of them are coded for ease of use!
                 </li>
-                <li><strong>!NG *COLOR* *GLOW*</strong> - Sets your nameglow, replace *COLOR* and *GLOW* with a color
-                    hex code (codes <a href="http://www.colorpicker.com/">available here</a>)
-                </li>
-                <li><strong>!BC *TEXT* *COLOR*</strong> - Sets your bubblecolor, replace *TEXT* and *COLOR* with a color
-                    hex code (codes <a href="http://www.colorpicker.com/">available here</a>)
-                </li>
                 <li><strong>!ROOMID</strong> - Shows the ID of your current room.</li>
+                <li><b>!AC &lt;coins&gt;</b> - Replace &lt;coins&gt; with amount of coins you want to add.</li>
+                    <ul>
+                        <li><b>!AC 5000</b> - Adds 5000 coins to inventory.</li>
+                    </ul>
+
+
+                <li><strong>!CLONE &lt;UserName&gt;</strong> - Copies the outfit of another user</li>
+                    <ul>
+                        <li><b>Usage: !CLONE Help</b> - Copies the outfit of Help.</li>
+                    </ul>
+                <li><strong>!NAME &lt;UserID&gt;</strong> - Fetches the username of the id it is associated with.</li>
+                    <ul>
+                        <li><b>Usage: !Name 27600</b> - Returns the name of the id which is Help.</li>
+                    </ul>
+                <li><strong>!ID [&lt;UserName&gt;]</strong> - Fetches the id associated with the username.</li>
+                    <ul>
+                        <li><b>Usage: !ID Help</b> - Returns 27600 which is the ID of Help.</li>
+                    </ul>
+                <li><b>PAID FEATURES</b> - Features bought in manager or won in giveways and contests</li>
+                    <ul>
+                        <li><strong>!NG &lt;nc&gt; &lt;ng&gt;</strong> - nc changes name color, ng changes name glow</li>
+                            <ul>
+                                <li><strong>Usage: !NG FF0000 0000FF</strong> - Sets text color to red and glow to blue</li>
+                            </ul>
+                        <li><strong>!BC &lt;tc&gt; &lt;bc&gt;</strong></li>
+                            <ul>
+                                <li><strong>Usage: !BC FF0000 0000FF</strong> - Sets text color to red and bubble color to blue</li>
+                            </ul>
+                        <li><strong>!WOW</strong> - Toggles walk on walls</li>
+                            <ul>
+                                <li><strong>Usage: !WOW</strong> - Turns on or off powers</li>
+                            </ul>
+                        <li><strong>!SPEED &lt;Speed&gt;</strong> - sets penguin speed ingame</li>
+                            <ul>
+                                <li><strong>Usage: !SPEED 10</strong> - Sets speed to 10</li>
+                            </ul>
+                    </ul>
+
+                <li><b>!COLOR &lt;HexCode&gt;</b> - Changes penguin color to the specified hexcode</li>
+                    <ul>
+                        <li><b>!COLOR 0000FF</b> - Changes penguin color to blue</li>
+                    </ul>
+                <li><b>!&lt;COLOR&gt;</b> - Changes penguin color to the specified color</li>
+                    <ul>
+                        <li>!PINK</li>
+                        <li>!GOLD</li>
+                        <li>!GRAY</li>
+                        <li>!GREY</li>
+                        <li>!GREEN</li>
+                        <li>!RED</li>
+                        <li>!WHITE</li>
+                        <li>!BLACK</li>
+                    </ul>
+
+                <li><strong>!HELP</strong> - Sends an alert to a Moderator ingame that you need help.</li>
+                <li><strong>!IGLOO &lt;IglooID&gt;</strong> - Changes your igloo to the igloo id.</li>
+                <li><strong>!FLOOR &lt;FloorID&gt;</strong> - Changes floor Id of igloo</li>
+                <li><strong>!MUSIC &lt;MusicID&gt;</strong> - Changes music id playing in glood</li>
+
             </ul>
         </div>
     </div>
@@ -151,6 +333,11 @@
             &middot; <a href="//www.cpps.me/staff.html">Staff</a>
             &middot; <a href="//www.cpps.me/stats.html">Stats</a>
             &middot; <a href="//support.cpps.me/">Support</a>
+            &middot; <a href="https://discord.gg/trZfbFu">Discord</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/HeIp">By Help</a>
         </p>
     </footer>
 </div>
