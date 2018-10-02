@@ -41,7 +41,7 @@
                 var online = document.getElementById("online");
                 if (online) {
                     var txt = "";
-                    txt += '<a href="http://cpps.me/stats.html" target="_top">Users Online: <b>' + stats.online + '</b></a>';
+                    txt += '<a href="//www.cpps.me/stats.html" target="_top">Users Online: <b>' + stats.online + '</b></a>';
                     online.innerHTML = txt;
                 } // online
             } // if stats.total
@@ -49,7 +49,7 @@
         script.onreadystatechange = function () {
             if (this.readyState != "complete") return;
             this.onload();
-        }
+        };
         document.getElementsByTagName("head")[0].appendChild(script);
     };
     refresh();
