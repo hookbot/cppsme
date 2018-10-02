@@ -26,6 +26,15 @@
               txt += "<tr><td style='padding: 5px;'>" + s.name + "</td><td style='padding: 5px;'>" + s.l + "</td><td style='padding: 5px;' align=right>" + s.p + "</td></tr>\n";
             }
             txt += "</table>\n</div>\n";
+            txt += "<br>\n";
+            txt += "<div style='border: solid 4px;'>\n";
+            txt += "<table>\n";
+            txt += "<tr><th style='padding: 5px;'>UserName</th><th style='padding: 5px;'>Streak</th></tr>\n";
+            for (var i = 0; i < stats.streaks.length; i++) {
+              var s = stats.streaks[i];
+              txt += "<tr><td style='padding: 5px;'>" + s[0] + "</td><td style='padding: 5px;' align=right>" + s[1] + "&nbsp;Days</td></tr>\n";
+            }
+            txt += "</table>\n</div>\n";
             userstats.innerHTML = txt;
           } // userstats
 
