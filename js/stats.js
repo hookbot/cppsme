@@ -1,7 +1,12 @@
 // Update User Stats
 (function () {
     var refresh = function () {
-        var script = document.createElement("script");
+        var script = document.getElementById('setonlinejs');
+        if (script) {
+            document.getElementsByTagName("head")[0].removeChild(script);
+        }
+        script = document.createElement("script");
+        script.id = 'setonlinejs';
         script.type = 'text/javascript';
         script.src = "//stats.cpps.me/users.js?" + new Date().getTime();
         script.onload = function () {
