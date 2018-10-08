@@ -1,5 +1,13 @@
 // Update User Stats
 (function () {
+    function htmlEscape(str) {
+        return str
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
     var refresh = function () {
         var script = document.getElementById('setonlinejs');
         if (script) {
@@ -15,6 +23,7 @@
                 var userstats = document.getElementById("userstats");
                 if (userstats) {
                     var txt = "";
+                    // General Info
                     txt += "Stats generated: <b>" + Math.round((now - stats.when) / 8640) / 10 + "</b> (Days ago)<br>\n";
                     txt += "Total users: <b>" + stats.total + "</b><br>\n";
                     txt += "Active users: <b>" + stats.active + "</b> (Login within past 30 days)<br>\n";
@@ -22,6 +31,8 @@
                     txt += "Most Online: <b>" + stats.max_online + "</b> (MAX Simultaneous Users)<br>\n";
                     txt += "Max Reached: <b>" + Math.round((now - stats.max_when) / 8640) / 10 + "</b> (Days ago)<br>\n";
                     txt += "DB Lag: <b>" + Math.round((now - (stats.when - stats.stale)) / 8640) / 10 + "</b> (Days ago)<br>\n";
+
+                    // Individual Server Stats
                     txt += "<div style='border: solid 4px;'>\n";
                     txt += "<table>\n";
                     txt += "<tr><th style='padding: 5px;'>World</th><th style='padding: 5px;'>Lang</th><th align=right style='padding: 5px;'>Online</th></tr>\n";
@@ -32,14 +43,33 @@
                     }
                     txt += "</table>\n</div>\n";
                     txt += "<br>\n";
+
+                    // Winning Streaks
                     txt += "<div style='border: solid 4px;'>\n";
                     txt += "<table>\n";
-                    txt += "<tr><th style='padding: 5px;'>UserName</th><th style='padding: 5px;'>Streak</th></tr>\n";
-                    for (var i = 0; i < stats.streaks.length; i++) {
-                        var s = stats.streaks[i];
-                        txt += "<tr><td style='padding: 5px;'>" + s[0] + "</td><td style='padding: 5px;' align=right>" + s[1] + "&nbsp;Days</td></tr>\n";
+                    txt += "<tr><th style='padding: 5px;'>Place</th><th style='padding: 5px;'>UserName</th><th style='padding: 5px;'>Login Streak</th></tr>\n";
+                    for (var i = 0; i < stats.streaks.length;) {
+                        var s = stats.streaks[i++];
+                        txt += "<tr><td style='padding: 5px;' align=right>#" + i + ":</td><td style='padding: 5px;'><b>" + htmlEscape(s[0]) + "</b></td><td style='padding: 5px;' align=right>" + s[1] + "&nbsp;Consecutive&nbsp;Days</td></tr>\n";
                     }
                     txt += "</table>\n</div>\n";
+                    txt += "<br>\n";
+
+                    // Leaders Most Online
+                    var past = [["Day",1],["Week",7],["Month",31]];
+                    for (var d = 0; d < past.length; d++) {
+                        var leaders = stats.leaders[past[d][1]];
+                        if (!leaders) continue;
+                        txt += "<div style='border: solid 4px;'>\n";
+                        txt += "<table>\n";
+                        txt += "<tr><th style='padding: 5px;'>Place</th><th style='padding: 5px;'>UserName</th><th style='padding: 5px;'>Online Past " + past[d][0] + "</th></tr>\n";
+                        for (var i = 0; i < leaders.length;) {
+                            var s = leaders[i++];
+                            txt += "<tr><td style='padding: 5px;' align=right>#" + i + ":</td><td style='padding: 5px;'><b>" + htmlEscape(s[0]) + "</b></td><td style='padding: 5px;' align=right>" + (Math.floor(s[1]/past[d][1]*10000)/100) + "%&nbsp;Online</td></tr>\n";
+                        }
+                        txt += "</table>\n</div>\n";
+                        txt += "<br>\n";
+                    }
                     userstats.innerHTML = txt;
                 } // userstats
 
