@@ -16,7 +16,7 @@
         script = document.createElement("script");
         script.id = 'setonlinejs';
         script.type = 'text/javascript';
-        script.src = "//stats.cpps.me/users.js?" + new Date().getTime();
+        script.src = "//stats.cpps.to/users.js?" + new Date().getTime();
         script.onload = function () {
             if (stats && stats.total) {
                 var now = Math.round(+new Date() / 1000);
@@ -76,7 +76,7 @@
                 var online = document.getElementById("online");
                 if (online) {
                     var txt = "";
-                    txt += '<a href="//www.cpps.me/stats.html" target="_top">Users Online: <b>' + stats.online + '</b></a>';
+                    txt += '<a href="//www.cpps.to/stats.html" target="_top">Users Online: <b>' + stats.online + '</b></a>';
                     online.innerHTML = txt;
                 } // online
             } // if stats.total
